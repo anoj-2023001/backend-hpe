@@ -9,9 +9,9 @@ const diagnosisSchema = Schema(
   {
     code: {
       type: String,
-      required:[true, 'Code is required'],
+      required: [true, 'Code is required'],
       unique: true,
-      minLength: [25, `Can't be overcome 25 characters`],
+      maxLength: [25, `Can't be overcome 25 characters`],
       trim: true
     },
     name: {
