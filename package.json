@@ -1,0 +1,36 @@
+{
+  "name": "hope-backend",
+  "version": "1.0.0",
+  "description": "Proyect HOPE \"Healthcare organization platform for everyone\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [
+    "HOPE",
+    "express",
+    "mongodb",
+    "jwt",
+    "javascript",
+    "mern",
+    "node.js"
+  ],
+  "author": "GallitoCorp",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "argon2": "^0.43.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "hope-backend": "file:",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.1",
+    "morgan": "^1.10.0",
+    "pdfkit": "^0.17.1"
+  }
+}

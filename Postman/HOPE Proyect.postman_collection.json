@@ -1,0 +1,956 @@
+{
+	"info": {
+		"_postman_id": "4a283c1a-c1e3-48f7-b8be-8c3d318d92bc",
+		"name": "HOPE Proyect",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41477909"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Login Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\", data.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userLoggin",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Admin123!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5500/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Angel David",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Noj Mazariegos",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "anoj",
+									"type": "text"
+								},
+								{
+									"key": "DPI",
+									"value": "5467123890122",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "anoj@example.ocm",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ta4Cmda!",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "2006-02-09",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "MALE",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "12 avenida zona 1 Guatemala, Guatemala",
+									"type": "text"
+								},
+								{
+									"key": "bloodType",
+									"value": "O-",
+									"type": "text"
+								},
+								{
+									"key": "allergies",
+									"value": "polvo,sol.frio",
+									"type": "text"
+								},
+								{
+									"key": "chronicDiseases",
+									"value": "asma",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5500/registerPatient",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"registerPatient"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Diagnosis",
+			"item": [
+				{
+					"name": "Create Diagnosis",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "code",
+									"value": "Asdaji1io8901283791123219",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Angel Noj",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Chequeo de rutina",
+									"type": "text"
+								},
+								{
+									"key": "severity",
+									"value": "mild",
+									"type": "text"
+								},
+								{
+									"key": "symptoms",
+									"value": "tos leve",
+									"type": "text"
+								},
+								{
+									"key": "recommendedTests",
+									"value": "no se aplica",
+									"type": "text"
+								},
+								{
+									"key": "treatmentGuidelines",
+									"value": "no aplica",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5500/v1/diagnosis/createDiagnosis",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"diagnosis",
+								"createDiagnosis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Diagnosis",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "David Mazariegos",
+									"type": "text"
+								},
+								{
+									"key": "confirmation",
+									"value": "YES",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "6843cb2254722fe500e86474",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Esto es una Prueba",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5500/v1/diagnosis/updateDiagnosis/6843cb2254722fe500e86474",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"diagnosis",
+								"updateDiagnosis",
+								"6843cb2254722fe500e86474"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Diagnosis",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5500/v1/diagnosis/getAllDiagnosis",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"diagnosis",
+								"getAllDiagnosis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Diagnosis by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5500/v1/diagnosis/getDiagnosis/id/6842fa24b67c3eb220dcc91b",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"diagnosis",
+								"getDiagnosis",
+								"id",
+								"6842fa24b67c3eb220dcc91b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Diagnosis by name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5500/v1/diagnosis/getDiagnosis/name/david",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"diagnosis",
+								"getDiagnosis",
+								"name",
+								"david"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Diagnosis by code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5500/v1/diagnosis/getDiagnosis/code/Asdaji1io890128379112323S",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"diagnosis",
+								"getDiagnosis",
+								"code",
+								"Asdaji1io890128379112323S"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Appointment",
+			"item": [
+				{
+					"name": "Create Appointment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "patient",
+									"value": "6843b2e5ebdbdf95471f1671",
+									"type": "text"
+								},
+								{
+									"key": "doctor",
+									"value": "6843b290ebdbdf95471f1666",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025-07-10",
+									"type": "text"
+								},
+								{
+									"key": "timeSlot",
+									"value": "10:00-10:30",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "Consulta",
+									"type": "text"
+								},
+								{
+									"key": "notes",
+									"value": "dolores de cabeza",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5500/v1/appointment/createAppointment",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"appointment",
+								"createAppointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Appointment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "timeSlot",
+									"value": "11:00-11:30",
+									"type": "text"
+								},
+								{
+									"key": "confirmation",
+									"value": "YES",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5500/v1/appointment/updateAppointment/6843c59d9a39780ed929f416",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"appointment",
+								"updateAppointment",
+								"6843c59d9a39780ed929f416"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Appointments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:5500/v1/appointment/getAllAppointments",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"appointment",
+								"getAllAppointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:5500/v1/appointment/getAppointment/6843b2feebdbdf95471f1677",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"appointment",
+								"getAppointment",
+								"6843b2feebdbdf95471f1677"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Appointment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "confirmed",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5500/v1/appointment/cancelAppointment/6845134832e87ffcc89e30e6",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"appointment",
+								"cancelAppointment",
+								"6845134832e87ffcc89e30e6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:5500/v1/appointment/getAppointmentByFilter/?timeSlot=10:00-10:30",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"appointment",
+								"getAppointmentByFilter",
+								""
+							],
+							"query": [
+								{
+									"key": "timeSlot",
+									"value": "10:00-10:30"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Medical History",
+			"item": [
+				{
+					"name": "Create Medical History",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "patient",
+									"value": "6843b2e5ebdbdf95471f1671",
+									"type": "text"
+								},
+								{
+									"key": "doctor",
+									"value": "6843b290ebdbdf95471f1666",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025-09-02",
+									"type": "text"
+								},
+								{
+									"key": "reasonForVisit",
+									"value": "Dolor de cabeza",
+									"type": "text"
+								},
+								{
+									"key": "symptoms",
+									"value": "fiebre",
+									"type": "text"
+								},
+								{
+									"key": "diagnosis",
+									"value": "6843cb2254722fe500e86474",
+									"type": "text"
+								},
+								{
+									"key": "vitalSigns.temperature",
+									"value": "38.5",
+									"type": "text"
+								},
+								{
+									"key": "vitalSigns.heartRate",
+									"value": "80",
+									"type": "text"
+								},
+								{
+									"key": "vitalSigns.respiratoryRate",
+									"value": "18",
+									"type": "text"
+								},
+								{
+									"key": "vitalSigns.bloodPressure",
+									"value": "120/80",
+									"type": "text"
+								},
+								{
+									"key": "vitalSigns.oxygenSaturation",
+									"value": "95",
+									"type": "text"
+								},
+								{
+									"key": "physicalExam",
+									"value": "Examen físico normal",
+									"type": "text"
+								},
+								{
+									"key": "personalHistory",
+									"value": "No alergias conocidas",
+									"type": "text"
+								},
+								{
+									"key": "familyHistory",
+									"value": "Diabetes en familia",
+									"type": "text"
+								},
+								{
+									"key": "treatmentPlan",
+									"value": "Reposo y analgesicos",
+									"type": "text"
+								},
+								{
+									"key": "followUp",
+									"value": "Control en 15 días",
+									"type": "text"
+								},
+								{
+									"key": "notes",
+									"value": "Paciente en buen estado",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5500/v1/medicalHistory/createMedicalHistory",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"medicalHistory",
+								"createMedicalHistory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Medical History",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "treatmentPlan",
+									"value": "Reposo",
+									"type": "text"
+								},
+								{
+									"key": "confirmation",
+									"value": "YES",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5500/v1/medicalHistory/updateMedicalHistory/68451be60b703423d392115d",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"medicalHistory",
+								"updateMedicalHistory",
+								"68451be60b703423d392115d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Medical Histories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:5500/v1/medicalHistory/getAllMedicalHistories",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"medicalHistory",
+								"getAllMedicalHistories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Medical History by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:5500/v1/medicalHistory/getMedicalHistoryById/68451c385c1e84e88eff20a3",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"v1",
+								"medicalHistory",
+								"getMedicalHistoryById",
+								"68451c385c1e84e88eff20a3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
